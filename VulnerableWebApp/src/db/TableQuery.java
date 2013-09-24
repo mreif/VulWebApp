@@ -37,6 +37,11 @@ public abstract class TableQuery<T> {
 		return this.queryEngine.updateDb(query);
 	}
 	
+	public int delete(String id){
+		String query = String.format("DELETE FROM %s WHERE id='%s'", this.table, id);
+		return this.executeUpdate(query);
+	}
+	
 	public abstract ArrayList<T> getAll();
 	
 	public abstract void save(T element);

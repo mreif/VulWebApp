@@ -81,7 +81,17 @@ public class UserTable extends TableQuery<User> {
 		
 		return user;
 	}
-
+	
+	public boolean validateUser(User user){
+		
+		return false;
+	}
+	
+	public boolean validateUser(String name, String unhashedPassword){
+		
+		return false;
+	}
+	
 	public void printTable(ArrayList<User> users) {
 		
 		StringBuffer buf = new StringBuffer();
@@ -92,5 +102,4 @@ public class UserTable extends TableQuery<User> {
 		}
 		System.out.println(buf.toString());
 	}
-
 }
