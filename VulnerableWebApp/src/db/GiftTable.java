@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import dao.Gift;
+import dao.Guestbookentry;
 
 public class GiftTable extends TableQuery<Gift> {
 	
@@ -93,8 +94,15 @@ public class GiftTable extends TableQuery<Gift> {
 	}
 
 	@Override
-	public void printTable(ArrayList<Gift> rs) {
-		// TODO Auto-generated method stub
+	public void printTable(ArrayList<Gift> entries) {
+		StringBuffer buf = new StringBuffer();
+
+		for (int i = 0; i < entries.size(); i++) {
+			Gift gift = entries.get(i);
+			buf.append(gift.getId() + "   |   " + gift.getName()
+					+ "    |    " + gift.getDescription() + "    |    " + gift.getPicturePath() + "\n");
+		}
+		System.out.println(buf.toString());
 		
 	}
 
