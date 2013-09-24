@@ -1,0 +1,227 @@
+body {
+	margin: auto;
+	background-image: url(bg.jpg);
+	background-repeat: repeat-y;
+	background-position: center top;
+	text-align: center;
+	height: 100%;
+}
+
+#top {
+	background-image: url(top.jpg);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	height: 150px;
+	width: 1035px;
+	border-top-width: medium;
+	border-top-style: solid;
+	border-top-color: #E0C72D;
+	border-right-color: #E0C72D;
+	border-bottom-color: #E0C72D;
+	border-left-color: #E0C72D;
+	margin: auto;
+}
+
+#toptop {
+	height: 50px;
+	width: 1035px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 40px;
+	font-weight: bold;
+	color: #E0C72D;
+	text-transform: uppercase;
+	background-position: center;
+	margin: auto;
+	background-color: #FFFFFF;
+}
+
+#columns {
+	width: 1035px;
+	margin: auto;
+	min-height: 600px;
+}
+
+#columns #right {
+	width: 200px;
+	margin: auto;
+	float: right;
+}
+
+#columns #left {
+	margin: auto;
+	width: 800px;
+	float: left;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #E5C403;
+}
+
+.float_left {
+	float: left;
+	text-indent: 0px;
+	margin-top: 5px;
+	margin-right: 10px;
+	border: 3px solid #E5C403;
+	padding: 3px;
+	margin-left: 0px;
+}
+
+#columns #left h1 {
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #E5C403;
+	padding-right: 10px;
+	padding-left: 10px;
+	background-color: #FFFFFF;
+}
+
+#columns #right a:link,#columns #right a:visited {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FF9933;
+	text-decoration: none;
+	text-transform: uppercase;
+	background-color: #FFFFFF;
+}
+
+#columns #right ul {
+	text-indent: -0.5em;
+	font-size: 0.9em;
+	text-align: left;
+}
+
+#columns #right ul li {
+	line-height: 1.7em;
+	display: list-item;
+	list-style-type: square;
+	color: #E5C403;
+	background-color: #FFFFFF;
+}
+
+#footer {
+	background-color: #47241E;
+	height: 50px;
+	width: 1037px;
+	bottom: 0;
+	position: inherit;
+	clear: both;
+	color: #FFFFFF;
+	margin-top: 10px;
+	margin-right: auto;
+	margin-bottom: auto;
+	margin-left: auto;
+}
+
+#columns #left  p {
+	text-align: justify;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: normal;
+	color: #89582F;
+	padding-right: 10px;
+	padding-left: 10px;
+	text-indent: 20px;
+	background-color: #FFFFFF;
+}
+
+#columns #right p {
+	text-align: justify;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: normal;
+	color: #89582F;
+	padding-right: 10px;
+	padding-left: 10px;
+	text-indent: 20px;
+	background-color: #FFFFFF;
+}
+
+#columns #right h1 {
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #E5C403;
+	padding-right: 10px;
+	padding-left: 10px;
+	background-color: #FFFFFF;
+}
+
+#footer p {
+	background-color: #47241E;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-align: center;
+	padding-right: 5px;
+	padding-left: 5px;
+	padding-top: 10px;
+	margin-top: 10px;
+}
+
+.float_right {
+	float: right;
+	text-indent: 0px;
+	margin-top: 5px;
+	margin-right: 0px;
+	border: 3px solid #E5C403;
+	padding: 3px;
+	margin-left: 10px;
+}
+
+#columns #right a:hover,#columns #right a:active {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #C7630D;
+	text-decoration: underline;
+	text-transform: uppercase;
+	background-color: #FFFFFF;
+}
+
+.email {
+	unicode-bidi: bidi-override;
+	direction: rtl;
+}
+
+#columns #left a:link,#columns #left a:visited {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: normal;
+	color: #89582F;
+	background-color: #FFFFFF;
+	text-decoration: underline;
+}
+
+.textarea_nachricht {
+	width: 400px;
+	height: 126px;
+	font-family: Arial, Tahoma, sans-serif;
+	font-weight: bold;
+	font-size: 13pt;
+	background-color: #fbf4a0;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	border: 0;
+	margin-left: 4px;
+}
+
+.inputfeld_name {
+	width: 402px;
+	height: 26px;
+	font-family: Arial, Tahoma, sans-serif;
+	font-weight: bold;
+	font-size: 13pt;
+	background-color: #fbf4a0;
+	-moz-border-radius: 4px; /* Firefox */
+	-webkit-border-radius: 4px; /* Safari, Chrome */
+	-khtml-border-radius: 4px; /* Konqueror */
+	border-radius: 4px; /* CSS3 */
+	padding-left: 4px;
+}
