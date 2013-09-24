@@ -1,4 +1,9 @@
-drop schema `hack`;
+# 
+# 1. create mysql server
+# 2. import that script
+# 3. be happy
+
+#drop schema `hack`;
 
 
 CREATE DATABASE  IF NOT EXISTS `hack` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
