@@ -82,14 +82,43 @@ public class UserTable extends TableQuery<User> {
 		return user;
 	}
 	
-	public boolean validateUser(User user){
+	/**
+	 * Validates user for login.
+	 * @param user to validate
+	 * @return 0 if exists
+	 * 		   1 if username is incorrect
+	 * 	  	   2 if password is incorrect
+	 */
+	public int validateUser(User user){
+		ArrayList<User> users = this.getAll();
+		boolean userc = false;
+		boolean pwc = false;
+		User current = null;
 		
-		return false;
+		for(int i = 0; i < users.size(); i++){
+			current = users.get(i);
+			if(current.getUsername().equals(user.getUsername())){
+				userc=true;
+				if(current.getPassword().equals(user.getPassword())){
+					pwc = true;
+				}
+			}
+		}
+		
+		return (userc)? (pwc)? 0 : 2 : 1;
 	}
 	
-	public boolean validateUser(String name, String unhashedPassword){
-		
-		return false;
+	/**
+	 * Validates user for login.
+	 * @param user to validate
+	 * @return 0 if exists
+	 * 		   1 if username is incorrect
+	 * 	  	   2 if password is incorrect
+	 */
+	public int validateUser(String name, String unhashedPassword){
+		User user = new User(-1, name, unhashedPassword);
+		user.hashPassword();
+		return validateUser(user);
 	}
 	
 	public void printTable(ArrayList<User> users) {

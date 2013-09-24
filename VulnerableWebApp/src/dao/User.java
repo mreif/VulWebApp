@@ -17,4 +17,8 @@ public class User {
 	public int getId(){ return this.id; }
 	public String getUsername(){ return this.username; }
 	public String getPassword(){ return this.password; }
+	
+	public void hashPassword(){
+		this.password = util.Security.md5(this.password);
+	}
 }
