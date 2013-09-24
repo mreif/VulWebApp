@@ -10,7 +10,7 @@
 <%
 	String name = request.getParameter("name");
 	String nachricht = request.getParameter("nachricht");
-	if (name.length() > 0 && nachricht.length() > 0) {
+	if (name != null && name.length() > 0 && nachricht !=null && nachricht.length() > 0) {
 		t.save(new Guestbookentry(-1,name,nachricht));
 	}
 %>
