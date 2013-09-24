@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class QueryLogger{
 	
-	private static final String filename = "querylog.txt";
+	private static final String filename = "querylog.log";
 	private static QueryLogger logger = null;
 	
 	private BufferedWriter bw = null;
