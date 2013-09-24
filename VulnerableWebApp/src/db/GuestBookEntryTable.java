@@ -14,7 +14,7 @@ public class GuestBookEntryTable extends TableQuery<Guestbookentry> {
 
 	@Override
 	public ArrayList<Guestbookentry> getAll() {
-		String query = String.format("SELECT * FROM %s ORDERED BY id ASC;", this.getTable());
+		String query = String.format("SELECT * FROM %s ORDER BY id ASC;", this.getTable());
 		ResultSet rs = this.executeQuery(query);
 
 		int element_id = -1;
