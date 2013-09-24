@@ -3,6 +3,7 @@ package dao;
 public class Guestbookentry {
 
 	public static final String[] metadata = { "id", "name", "entry" };
+	public static final String table = "guestbookentry";
 	
 	private int id;
 	private String name;

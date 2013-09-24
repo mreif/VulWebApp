@@ -3,6 +3,8 @@ package dao;
 public class GiftEntry {
 
 	public static final String[] metadata = { "id", "rating", "commentary", "gift_id" };
+	public static final String table = "giftentry";
+	
 	
 	private int id;
 	private int rating;
