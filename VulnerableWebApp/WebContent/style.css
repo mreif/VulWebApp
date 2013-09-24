@@ -200,7 +200,7 @@ body {
 }
 
 .textarea_nachricht {
-	width: 400px;
+	width: 402px;
 	height: 126px;
 	font-family: Arial, Tahoma, sans-serif;
 	font-weight: bold;
@@ -209,7 +209,6 @@ body {
 	-webkit-border-radius: 7px;
 	-moz-border-radius: 7px;
 	border: 0;
-	margin-left: 4px;
 }
 
 .inputfeld_name {
@@ -224,4 +223,18 @@ body {
 	-khtml-border-radius: 4px; /* Konqueror */
 	border-radius: 4px; /* CSS3 */
 	padding-left: 4px;
+}
+
+.Entry_name {
+	padding-bottom: 10px;
+	width: 402px;
+	margin-left: 70px;
+	background-color: #fbf4a0;
+}
+
+.submit {
+	width: 200px;
+	background-color: #fff4b3;
+	border: 1px outset #b37d00 ;
+	height: 30px;
 }
