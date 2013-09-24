@@ -2,6 +2,8 @@ package dao;
 
 public class User {
 	
+	public static String[] metadata = { "id", "username", "password" };
+	
 	private  int id;
 	private String username;
 	private String password;

@@ -46,15 +46,19 @@ public class GuestBookEntryTable extends TableQuery<Guestbookentry> {
 				entries.add(gentry);
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			QueryLogger.getInstance().logError("guestbookentry, getAll()");
 		}
 
 		return entries;
 	}
 
 	@Override
-	public void save(Guestbookentry element) {
-		// TODO Auto-generated method stub
+	public void save(Guestbookentry gentry) {
+		String values = String.format("( '%s', '%s' );", gentry.getName(), gentry.getEntry());
+		String query = String.format("INSERT INTO %s ( %s ) VALUES %s",
+				this.getTable(), this.getInsertTuple(), values);
+		
+		this.executeUpdate(query);	
 
 	}
 
@@ -68,26 +72,24 @@ public class GuestBookEntryTable extends TableQuery<Guestbookentry> {
 		String name = null;
 		String entry = null;
 		Guestbookentry gentry = null;
-		int metalen = this.getMetadata().length;
 
 		try {
 			while (rs.next()) {
 				for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
-					int r = i % metalen;
 					String data = rs.getObject(i).toString();
-					switch (r) {
-					case 0:
+					switch (i) {
+					case 3:
 						entry = data;
-					case 1:
-						name = data;
 					case 2:
+						name = data;
+					case 1:
 						element_id = new Integer(data).intValue();
 					}
 				}
 				gentry = new Guestbookentry(element_id, name, entry);
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			QueryLogger.getInstance().logError("guestbookentry, getById()");
 		}
 
 		return gentry;

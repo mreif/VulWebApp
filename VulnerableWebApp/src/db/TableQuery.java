@@ -33,6 +33,10 @@ public abstract class TableQuery<T> {
 		return this.queryEngine.queryDb(query);
 	}
 	
+	public int executeUpdate(String query){
+		return this.queryEngine.updateDb(query);
+	}
+	
 	public abstract ArrayList<T> getAll();
 	
 	public abstract void save(T element);

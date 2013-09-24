@@ -22,6 +22,7 @@ public class QueryLogger{
 	public void logQuery(String query){
 		try {
 			bw.write("\nQUERY: " + query);
+			bw.flush();
 		} catch (IOException e) {
 			System.err.println("unable write query to log");
 			e.printStackTrace();

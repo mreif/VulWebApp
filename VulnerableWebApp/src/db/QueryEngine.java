@@ -15,6 +15,25 @@ public class QueryEngine {
 		conn = DBConn.getDbConnection();
 	}
 	
+	public int updateDb(String query){
+		Statement stmt;
+		try {
+			stmt = conn.createStatement();
+			logger.logQuery(query);
+			return stmt.executeUpdate(query);
+		} catch (SQLException s) {
+			String msg = s.getMessage() 
+					+ "\n\n SQLState: " 
+					+ s.getSQLState()
+					+ "\n\n ErrorCode: "
+					+ s.getErrorCode();
+			System.err.println(msg);
+			logger.logError(msg);
+		}
+		
+		return -1;
+	}
+	
 	public ResultSet queryDb(String query){
 		
 		Statement stmt;
