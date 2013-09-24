@@ -9,7 +9,7 @@ import dao.Guestbookentry;
 
 public class GiftTable extends TableQuery<Gift> {
 	
-	public GiftTable(String[] metadata, String table) {
+	public GiftTable() {
 		super(Gift.metadata, "gift");
 	}
 

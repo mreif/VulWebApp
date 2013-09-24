@@ -1,6 +1,10 @@
 package db;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+import dao.User;
 
 public class DBConn {
 
@@ -57,7 +61,7 @@ public class DBConn {
 	
 	public static void main(String[] args){
 		
-		UserTable t = new UserTable();
+		TableQuery t = new GiftTable();
 		t.printTable(t.getAll());
 	}
 	
