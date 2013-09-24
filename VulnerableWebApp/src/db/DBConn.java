@@ -57,7 +57,8 @@ public class DBConn {
 	
 	public static void main(String[] args){
 		
-		Connection conn = getDbConnection();
+		QueryEngine e = new QueryEngine();
+		e.printResultSet(e.select("*", "user", null));
 	}
 	
 }
