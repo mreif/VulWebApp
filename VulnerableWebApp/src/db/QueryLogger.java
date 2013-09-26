@@ -1,27 +1,19 @@
 package db;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
 
-public class QueryLogger{
+public class QueryLogger extends util.GenericLogger{
 	
 	private static final String filename = "querylog.log";
 	private static QueryLogger logger = null;
 	
-	private BufferedWriter bw = null;
-	
 	private QueryLogger(){
-		try {
-			bw = new BufferedWriter(new FileWriter(filename, true));
-		} catch (IOException e) {
-			System.err.println("File " + filename + " doesn't exist!");
-		}
+		super(filename);
 	}
 	
 	public void logQuery(String query){
 		try {
-			bw.write("\nQUERY: " + query);
+			bw.write("\n" + getTimestamp() + " | QUERY: " + query);
 			bw.flush();
 		} catch (IOException e) {
 			System.err.println("unable write query to log");
@@ -31,7 +23,7 @@ public class QueryLogger{
 	
 	public void logError(String msg){
 		try {
-			bw.write("\nERROR: " + msg);
+			bw.write("\n" + getTimestamp() + "ERROR: " + msg);
 		} catch (IOException e) {
 			System.err.println("unable write query to log");
 			e.printStackTrace();
