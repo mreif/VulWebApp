@@ -88,7 +88,7 @@ public class GuestBookEntryTable extends TableQuery<Guestbookentry> {
 
 	@Override
 	public void save(Guestbookentry gentry) {
-		String entry = gentry.getEntry().replace("'", "\'")
+		String entry = gentry.getEntry().replace("\'", "\\\'")
 				.replace("\"", "\\\"");
 		String values = String.format("( '%s', '%s' );", gentry.getName(),
 				entry);
