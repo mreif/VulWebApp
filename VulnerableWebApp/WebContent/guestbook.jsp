@@ -4,16 +4,23 @@
 <%@ page import="db.GuestBookEntryTable"%>
 <%@ page import="dao.Guestbookentry"%>
 <%@ page import="java.util.ArrayList"%>
+<%@ page import="java.io.File"%>
 <%
 	GuestBookEntryTable t = new GuestBookEntryTable();
 %>
 <%
 	String name = request.getParameter("name");
 	String nachricht = request.getParameter("nachricht");
-	if (name != null && name.length() > 0 && nachricht !=null && nachricht.length() > 0) {
-		t.save(new Guestbookentry(-1,name,nachricht));
-	}
-%>
+	String check = t.checkEntry(nachricht);
+	if (name != null && name.length() > 0 && nachricht != null
+			&& nachricht.length() > 0) {
+		if (check != null && check.length() == 0) {
+			t.save(new Guestbookentry(-1, name, nachricht));
+		} else if (check != null) {%>
+		<script type="text/javascript">alert("<%=check.replace("\n","")%>")</script>
+
+<%}
+	}%>
 
 
 
@@ -40,7 +47,7 @@
 				schätzen. Wenn ihr eine gute Geschenkidee habt, die ihr auf dieser
 				Seite vermisst, schreibt die Idee einfach hier rein.</div>
 			<div align="center">
-				<form method="get" action="guestbook.jsp">
+				<form method="post" action="guestbook.jsp">
 					<table style="text-align: left; border-spacing: 10px 20px;">
 						<tr>
 							<td>Name:</td>

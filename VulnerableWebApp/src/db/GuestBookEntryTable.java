@@ -1,5 +1,8 @@
 package db;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -51,9 +54,38 @@ public class GuestBookEntryTable extends TableQuery<Guestbookentry> {
 
 		return entries;
 	}
+	
+	public String checkEntry(String entry){
+		String command = entry;
+		String output="Sie haben Schimpfwörter benutzt, deshalb wird ihr Eintrag nicht gespeichert: ";
+		File file=new File(GuestBookEntryTable.class.getProtectionDomain().getCodeSource().getLocation().getPath()).getParentFile().getParentFile();
+		// arsch " && echo $(ls) && echo " hallo exploit
+		String[] c = new String[3];
+		c[0] = "/bin/sh";
+		c[1] = "-c";
+		c[2] = "python schimpfwortSucher.py \"" + command + "\"";
+		Process p;
+		try {
+			p = Runtime.getRuntime().exec(c, null,
+					file);
+			InputStream in = p.getInputStream();
+			int ch = in.read();
+			while (ch != -1) {
+				output+=((char) ch);
+				ch = in.read();
+			}
+			return output;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 
 	@Override
 	public void save(Guestbookentry gentry) {
+		
 		String values = String.format("( '%s', '%s' );", gentry.getName(), gentry.getEntry());
 		String query = String.format("INSERT INTO %s ( %s ) VALUES %s",
 				this.getTable(), this.getInsertTuple(), values);
