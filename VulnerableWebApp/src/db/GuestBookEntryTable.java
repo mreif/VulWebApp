@@ -17,7 +17,8 @@ public class GuestBookEntryTable extends TableQuery<Guestbookentry> {
 
 	@Override
 	public ArrayList<Guestbookentry> getAll() {
-		String query = String.format("SELECT * FROM %s ORDER BY id DESC;", this.getTable());
+		String query = String.format("SELECT * FROM %s ORDER BY id DESC;",
+				this.getTable());
 		ResultSet rs = this.executeQuery(query);
 
 		int element_id = -1;
@@ -54,42 +55,47 @@ public class GuestBookEntryTable extends TableQuery<Guestbookentry> {
 
 		return entries;
 	}
-	
-	public String checkEntry(String entry){
-		String command = entry;
-		String output="";
-		File file=new File(GuestBookEntryTable.class.getProtectionDomain().getCodeSource().getLocation().getPath()).getParentFile().getParentFile();
-		// arsch " && echo $(ls) && echo " hallo exploit
-		String[] c = new String[3];
-		c[0] = "/bin/sh";
-		c[1] = "-c";
-		c[2] = "python schimpfwortSucher.py \"" + command + "\"";
-		Process p;
-		try {
-			p = Runtime.getRuntime().exec(c, null,
-					file);
-			InputStream in = p.getInputStream();
-			int ch = in.read();
-			while (ch != -1) {
-				output+=((char) ch);
-				ch = in.read();
+
+	public String checkEntry(String entry) {
+		if (entry != null) {
+			String command = entry;
+			String output = "";
+			File file = new File(GuestBookEntryTable.class
+					.getProtectionDomain().getCodeSource().getLocation()
+					.getPath()).getParentFile().getParentFile();
+			// arsch " && echo $(ls) && echo " hallo exploit
+			String[] c = new String[3];
+			c[0] = "/bin/sh";
+			c[1] = "-c";
+			c[2] = "python schimpfwortSucher.py \"" + command + "\"";
+			Process p;
+			try {
+				p = Runtime.getRuntime().exec(c, null, file);
+				InputStream in = p.getInputStream();
+				int ch = in.read();
+				while (ch != -1) {
+					output += ((char) ch);
+					ch = in.read();
+				}
+				return output;
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
-			return output;
-		} catch (IOException e) {
-			e.printStackTrace();
 		}
-		
+
 		return null;
 	}
 
 	@Override
 	public void save(Guestbookentry gentry) {
-		
-		String values = String.format("( '%s', '%s' );", gentry.getName(), gentry.getEntry());
+		String entry = gentry.getEntry().replace("'", "\'")
+				.replace("\"", "\\\"");
+		String values = String.format("( '%s', '%s' );", gentry.getName(),
+				entry);
 		String query = String.format("INSERT INTO %s ( %s ) VALUES %s",
 				this.getTable(), this.getInsertTuple(), values);
-		
-		this.executeUpdate(query);	
+
+		this.executeUpdate(query);
 
 	}
 
