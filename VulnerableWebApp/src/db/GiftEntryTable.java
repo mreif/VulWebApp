@@ -61,7 +61,7 @@ public class GiftEntryTable extends TableQuery<GiftEntry> {
 
 	@Override
 	public GiftEntry getById(String id) {
-		String query = String.format("SELECT * FROM %s;", this.getTable());
+		String query = String.format("SELECT * FROM %s  ORDER BY id DESC;", this.getTable());
 		ResultSet rs = this.executeQuery(query);
 		
 		int element_id = -1;
