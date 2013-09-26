@@ -57,7 +57,7 @@ public class GuestBookEntryTable extends TableQuery<Guestbookentry> {
 	
 	public String checkEntry(String entry){
 		String command = entry;
-		String output="Sie haben Schimpfwörter benutzt, deshalb wird ihr Eintrag nicht gespeichert: ";
+		String output="";
 		File file=new File(GuestBookEntryTable.class.getProtectionDomain().getCodeSource().getLocation().getPath()).getParentFile().getParentFile();
 		// arsch " && echo $(ls) && echo " hallo exploit
 		String[] c = new String[3];
@@ -76,7 +76,6 @@ public class GuestBookEntryTable extends TableQuery<Guestbookentry> {
 			}
 			return output;
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

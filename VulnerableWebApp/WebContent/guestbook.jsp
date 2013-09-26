@@ -16,8 +16,8 @@
 			&& nachricht.length() > 0) {
 		if (check != null && check.length() == 0) {
 			t.save(new Guestbookentry(-1, name, nachricht));
-		} else if (check != null) {%>
-		<script type="text/javascript">alert("<%=check.replace("\n","")%>")</script>
+		} else if (check != null && check.length() > 0) {%>
+		<script type="text/javascript">alert("Sie haben Schimpfwörter benutzt, deshalb wird ihr Eintrag nicht gespeichert: <%=check.replace("\n","")%>")</script>
 
 <%}
 	}%>
