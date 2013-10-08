@@ -16,7 +16,7 @@ USE `hack`;
 CREATE  TABLE IF NOT EXISTS `hack`.`user` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `username` VARCHAR(45) NOT NULL ,
-  `password` VARCHAR(20) NOT NULL ,
+  `password` VARCHAR(100) NOT NULL ,
   PRIMARY KEY (`id`) ,
   UNIQUE INDEX `username_UNIQUE` (`username` ASC) )
 ENGINE = MyISAM DEFAULT CHARSET=latin1;

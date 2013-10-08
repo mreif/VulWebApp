@@ -1,6 +1,9 @@
 package util;
 
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
+import javax.xml.bind.annotation.adapters.HexBinaryAdapter;
 
 public class Security {
 
@@ -8,17 +11,19 @@ public class Security {
 	
 	public static String md5(String cpwd){
 		
-		String md5hash = "";
+		MessageDigest md5 = null;
 		try {
-			byte[] bytes = cpwd.getBytes("UTF-8");
-			MessageDigest md = MessageDigest.getInstance("MD5");
-			byte[] md5 = md.digest(bytes);
-			md5hash = new String (md5, "UTF-8");
-		} catch (Exception e) {
+			md5 = MessageDigest.getInstance("MD5");
+		} catch (NoSuchAlgorithmException e) {
 			GenericLogger gl = new GenericLogger(secLog);
-			gl.logError(cpwd + " is not hashable");
-			gl.closeLogger();
+			gl.logError("Error: " + cpwd + " can't be hashed");
 		}
-		return md5hash;
+		
+		return (new HexBinaryAdapter()).marshal(md5.digest(cpwd.getBytes())).toLowerCase();
 	}
+	
+	public static void main(String[] args){
+		System.out.println(Security.md5("test"));
+	}
+	
 }
