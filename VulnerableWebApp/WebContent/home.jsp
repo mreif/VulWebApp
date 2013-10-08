@@ -28,7 +28,8 @@
 			<br/>
 			<div>
 				Leider müssen wir Ihnen miteilen, dass sich auf Grund von technischen Problem derzeit niemand neu registieren kann!
-				Wir mussten die Funktion lieder vorübergehend deaktivieren. Wir bitten um ihr Verständis.
+				Wir mussten die Funktion lieder vorübergehend deaktivieren. Wir bitten um ihr Verständis und hoffen,
+				dass Sie das nicht davon abhält früher oder später neue Geschenkideen mit uns zu teilen.
 				<br/>
 				Mit freundlich Grüßen,
 				das Geschenkideenteam
