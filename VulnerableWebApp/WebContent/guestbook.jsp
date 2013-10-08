@@ -45,7 +45,7 @@
 			<div style="clear: left; float: left">Dieses Gästebuch ist für
 				Freunde der Geschenketraum GbR und Personen die gute Geschenkideen
 				schätzen. Wenn ihr eine gute Geschenkidee habt, die ihr auf dieser
-				Seite vermisst, schreibt die Idee einfach hier rein.</div>
+				Seite vermisst, schreibt die Idee einfach hier rein. Da uns gute Sitten wichtig sind, werden Einträge mit Schimpfwörtern nicht gespeichert.</div>
 			<div align="center">
 				<form method="post" action="guestbook.jsp">
 					<table style="text-align: left; border-spacing: 10px 20px;">
@@ -94,7 +94,7 @@
 			<ul>
 				<li><a href="http://www.free-css.com/">home</a></li>
 				<li><a href="guestbook.jsp">Gästebuch</a></li>
-				<li><a href="http://www.free-css.com/">Link 2</a></li>
+				<li><a href="login.jsp">Login</a></li>
 				<li><a href="http://www.free-css.com/">Link 3</a></li>
 			</ul>
 		</div>
