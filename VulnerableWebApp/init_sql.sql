@@ -60,7 +60,7 @@ CREATE  TABLE IF NOT EXISTS `hack`.`gift` (
   `name` VARCHAR(45) NOT NULL ,
   `description` TEXT NOT NULL ,
   `needed_time` VARCHAR(150) NOT NULL ,
-  `material` TEXT NOT NULL ,
+  `materials` TEXT NOT NULL ,
   `instructions` TEXT NOT NULL ,
   `picture_path` TEXT NULL ,
   PRIMARY KEY (`id`) ,
