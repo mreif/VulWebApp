@@ -103,7 +103,7 @@ public class UserTable extends TableQuery<User> {
 		
 		ResultSet rs = this.executeQuery(query);
 		
-		if(rows >= 1) return 0;
+		if(rows == 1) return 0;
 		
 		String username = null;
 		String password = null;
