@@ -94,7 +94,7 @@
 			<ul>
 				<li><a href="http://www.free-css.com/">home</a></li>
 				<li><a href="guestbook.jsp">Gästebuch</a></li>
-				<li><a href="http://www.free-css.com/">Link 2</a></li>
+				<li><a href="login.jsp">Login</a></li>
 				<li><a href="http://www.free-css.com/">Link 3</a></li>
 			</ul>
 		</div>
