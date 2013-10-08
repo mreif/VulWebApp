@@ -1,6 +1,6 @@
 body {
 	margin: auto;
-	background-image: url(bg.jpg);
+	background-image: url(img/bg.jpg);
 	background-repeat: repeat-y;
 	background-position: center top;
 	text-align: center;
@@ -8,7 +8,7 @@ body {
 }
 
 #top {
-	background-image: url(top.jpg);
+	background-image: url(img/top.jpg);
 	background-repeat: no-repeat;
 	background-position: center bottom;
 	height: 150px;
