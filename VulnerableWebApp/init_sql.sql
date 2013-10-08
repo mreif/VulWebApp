@@ -59,6 +59,9 @@ CREATE  TABLE IF NOT EXISTS `hack`.`gift` (
   `id` INT NOT NULL ,
   `name` VARCHAR(45) NOT NULL ,
   `description` TEXT NOT NULL ,
+  `needed_time` TEXT NOT NULL ,
+  `material` TEXT NOT NULL ,
+  `instructions` TEXT NOT NULL ,
   `picture_path` TEXT NULL ,
   PRIMARY KEY (`id`) ,
   UNIQUE INDEX `name_UNIQUE` (`name` ASC) )
@@ -68,8 +71,9 @@ ENGINE = MyISAM DEFAULT CHARSET=latin1;
 ##  create some gifts
 ###
 
-INSERT INTO `gift` (`name`,`description`,`picture_path`) VALUES
-('', '', './pictures/1_pic.jpg');
+INSERT INTO `gift` (`name`,`description`, `needed_time`, `material`, `instructions`, `picture_path`) VALUES
+('Selbstgemachte Gutscheine', 'Selbst druckbare Coupons sind ein Geschenk für jedermann. Man kann sie in Grußkarten hineinstecken oder als kleines eigenes Geschenk verschenken. In letzterem Fall kann man auch mehrere ausdrucken und diese in ein kleines Heft oder Buch machen. Alles was sie dafür brauchen ist ein bisschen Kreativität, einen Computer mit Drucker und ein Grafikprogramm, wie z.B. Paint.',
+'unbekannt', 'Drucker, Computer, Grafikprogramm (z.B. Paint)', '', 'img/giftpics/1_coupon.jpg');
 
 ###
 ##
