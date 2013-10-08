@@ -102,7 +102,7 @@ public class UserTable extends TableQuery<User> {
 
 		
 		try {
-			while(rs.next()){
+			while(rs != null && rs.next()){
 				for(int i = 1 ; i <= rs.getMetaData().getColumnCount(); i++){
 					String data = rs.getObject(i).toString();
 					switch (i){
