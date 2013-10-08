@@ -46,7 +46,7 @@ public abstract class TableQuery<T> {
 	public int getRowCount(String query) throws SQLException{
 		ResultSet rs = this.executeQuery(query);
 		
-		while (rs.next()){
+		while (rs != null && rs.next()){
 			  return rs.getInt(1);
 		}
 		
