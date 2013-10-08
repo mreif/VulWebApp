@@ -55,7 +55,7 @@ public class UserTable extends TableQuery<User> {
 	}
 
 	public User getById(String id) {
-		String query = String.format("SELECT * FROM %s WHERE id=%s;", this.getTable(), id);
+		String query = String.format("SELECT * FROM %s WHERE id='%s';", this.getTable(), id);
 		ResultSet rs = this.executeQuery(query);
 		
 		int element_id = -1;
@@ -92,14 +92,27 @@ public class UserTable extends TableQuery<User> {
 	 */
 	public int validateUser(String name, String unhashedPassword){
 		
-		String query = String.format("SELECT * FROM %s WHERE username=%s;", this.getTable(), name);
+		String query = String.format("SELECT * FROM %s WHERE username='%s' AND password=(MD5('%s'));",
+				this.getTable(), name, unhashedPassword);
+		int rows = -1;
+		try {
+			rows = super.getRowCount(query.replace("*", "COUNT(*)"));
+		} catch (SQLException e1) {
+			QueryLogger.getInstance().logError("user, validateUser()/rowCount()");
+		}
+		
 		ResultSet rs = this.executeQuery(query);
-
+		
+		if(rows > 1) return 0;
+		
 		String username = null;
 		String password = null;
 		User user = null;
 		int result = 1;
 
+		query = String.format("SELECT * FROM %s WHERE username='%s';",
+				this.getTable(), name);
+		rs = this.executeQuery(query);
 		
 		try {
 			while(rs != null && rs.next()){
@@ -119,7 +132,7 @@ public class UserTable extends TableQuery<User> {
 			user = new User(-1, username, password);
 			String hash = Security.md5(unhashedPassword);
 			
-			result = (user.getPassword().equals(hash))? 0 : 2;
+			result = 2;
 		}
 		
 		return result;

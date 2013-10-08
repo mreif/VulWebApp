@@ -57,7 +57,10 @@ public class GiftTable extends TableQuery<Gift> {
 
 	@Override
 	public void save(Gift gift) {
-		String values = String.format("( '%s', '%s', '%s' );", gift.getName(), gift.getDescription(), gift.getPicturePath());
+		String values = String.format("( '%s', '%s', '%s', '%s', '%s', '%s' );",
+				gift.getName(), gift.getDescription(),
+				gift.getTime(), gift.getMaterials(),
+				gift.getInstructions(), gift.getPicturePath());
 		String query = String.format("INSERT INTO %s ( %s ) VALUES %s",
 				this.getTable(), this.getInsertTuple(), values);
 		

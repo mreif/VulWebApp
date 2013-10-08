@@ -1,6 +1,7 @@
 package db;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public abstract class TableQuery<T> {
@@ -40,6 +41,16 @@ public abstract class TableQuery<T> {
 	public int delete(String id){
 		String query = String.format("DELETE FROM %s WHERE id='%s'", this.table, id);
 		return this.executeUpdate(query);
+	}
+	
+	public int getRowCount(String query) throws SQLException{
+		ResultSet rs = this.executeQuery(query);
+		
+		while (rs.next()){
+			  return rs.getInt(1);
+		}
+		
+		return 0;
 	}
 	
 	public abstract ArrayList<T> getAll();
