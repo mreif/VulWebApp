@@ -13,8 +13,15 @@
 	<div id="columns">
 		<div id="left">
 			<h1 style="text-align: center">Willkommen</h1>
+			<%
+				if (request.getParameter("logout") != null
+						&& request.getParameter("logout").equals("ausloggen")) {
+			%>
 			<div style="text-align: center">Seit ihr ein Administrator oder
 				Moderator dieser Seite, dann logt euch hier ein.</div>
+			<%
+				}
+			%>
 			<div align="center">
 
 				<form method="get" action="login.jsp">
@@ -41,6 +48,7 @@
 						} else if (request.getParameter("logout") != null
 								&& request.getParameter("logout").equals("ausloggen")) {
 							session.removeAttribute("userid");
+							response.sendRedirect("login.jsp");
 						} else {
 					%>
 					<span style="color: green">Sie sind bereits eingeloggt!</span> <input
@@ -72,6 +80,7 @@
 				<%
 					} else {
 							session.setAttribute("userid", name);
+							response.sendRedirect("login.jsp");
 						}
 					}
 				%>
