@@ -56,7 +56,7 @@ INSERT INTO `guestbookentry` (`name`, `entry`) VALUES
 ###
 
 CREATE  TABLE IF NOT EXISTS `hack`.`gift` (
-  `id` INT NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL ,
   `description` TEXT NOT NULL ,
   `needed_time` VARCHAR(150) NOT NULL ,
