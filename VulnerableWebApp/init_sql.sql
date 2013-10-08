@@ -71,7 +71,7 @@ ENGINE = MyISAM DEFAULT CHARSET=latin1;
 ##  create some gifts
 ###
 
-INSERT INTO `gift` (`name`,`description`, `needed_time`, `material`, `instructions`, `picture_path`) VALUES
+INSERT INTO `gift` (`name`,`description`, `needed_time`, `materials`, `instructions`, `picture_path`) VALUES
 ('Selbstgemachte Gutscheine', 'Selbst druckbare Coupons sind ein Geschenk für jedermann. Man kann sie in Grußkarten hineinstecken oder als kleines eigenes Geschenk verschenken. In letzterem Fall kann man auch mehrere ausdrucken und diese in ein kleines Heft oder Buch machen. Alles was sie dafür brauchen ist ein bisschen Kreativität, einen Computer mit Drucker und ein Grafikprogramm, wie z.B. Paint.',
 'unbekannt','Drucker,Computer,Grafikprogramm (z.B. Paint)', '', 'img/giftpics/1_coupon.jpg'),
 ('Mousepad', 'Endecken Sie wie Sie ein direkt auf ihre Bedürfnisse zugeschnittenes Mousepad erstellen können. Dieses Mousepad kann an verschiedene Persönlichkeiten oder Dekorationen angepasst werden. Probieren Sie es aus und kreieren Sie eins für ein ganz spezielles Geschenk.',
