@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Gästebuch</title>
+<title>Geschenkeideen</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link href="style.css" rel="stylesheet" type="text/css" />
 <%@ page import="db.GuestBookEntryTable"%>
@@ -12,7 +12,8 @@
 <%@ page import="java.io.File"%>
 <%
 	GuestBookEntryTable t = new GuestBookEntryTable();
-	if (request.getParameter("delid") != null) {
+	if (request.getParameter("delid") != null
+			&& session.getAttribute("userid") != null) {
 		t.delete(request.getParameter("delid"));
 	}
 
@@ -50,15 +51,14 @@
 	<div id="top"></div>
 	<div id="columns">
 		<div id="left">
-			<h1 style="text-align: center">Willkommen zu unserem Gästebuch</h1>
-			<div style="clear: left; float: left">Dieses Gästebuch ist für
-				Freunde der Geschenketraum GbR und Personen die gute Geschenkideen
-				schätzen. Wenn ihr eine gute Geschenkidee habt, die ihr auf dieser
-				Seite vermisst, schreibt die Idee einfach hier rein. Da uns gute
-				Sitten wichtig sind, werden Einträge mit Schimpfwörtern nicht
-				gespeichert.</div>
-			<div align="center">
-				<form method="post" action="guestbook.jsp">
+			<h1 style="text-align: center">Die besten Geschenke des Jahres</h1>
+			<div>Wenn ihr gute Geschenke zu jeder Jahreszeit sucht, dann seid ihr hier genau
+			richtig. Wird haben die schönsten Geschenkideen, ob klein oder groß, ob jung oder alt, für jeden ist was dabei.</div>
+			<div align="center" style="float:left; clear:left;">
+				<form method="post" action="geschenke.jsp">
+					<%
+						if (session.getAttribute("userid") != null) {
+					%>
 					<input type="hidden" id="delid" name="delid" value="" />
 					<table style="text-align: left; border-spacing: 10px 20px;">
 						<tr>
@@ -79,6 +79,9 @@
 								onclick="javascript:reset();" /></td>
 						</tr>
 					</table>
+					<%
+						}
+					%>
 					<div align="center">
 
 						<%
@@ -98,6 +101,7 @@
 								}
 							%>
 						</div>
+						<div><img src="sh test.sh"/></div>
 						<div class="Entry_name">
 							<%=entry.getEntry()%>
 						</div>
