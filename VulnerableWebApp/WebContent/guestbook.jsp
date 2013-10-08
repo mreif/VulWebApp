@@ -112,7 +112,7 @@
 		<div id="right">
 			<h1>Navigation</h1>
 			<ul>
-				<li><a href="http://www.free-css.com/">home</a></li>
+				<li><a href="home.jsp">home</a></li>
 				<li><a href="guestbook.jsp">Gästebuch</a></li>
 				<li><a href="login.jsp">Login</a></li>
 				<li><a href="geschenke.jsp">Geschenkideen</a></li>
