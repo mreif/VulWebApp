@@ -13,9 +13,9 @@ public class Gift {
 	private String picturePath;
 	
 	public Gift(int id, String name,
-			String description, String picturePath,
+			String description,
 			String needed_time, String materials,
-			String instructions){
+			String instructions, String picturePath){
 		this.id = id;
 		this.name = name;
 		this.description = description;
