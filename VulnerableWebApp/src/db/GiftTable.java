@@ -89,12 +89,12 @@ public class GiftTable extends TableQuery<Gift> {
 				for(int i = 1 ; i <= rs.getMetaData().getColumnCount(); i++){
 					String data = rs.getObject(i).toString();
 					switch (i){
-					case 7: picPath = data; break;
-					case 6: instructions = data; break;
+					case 7: picPath = data.replace("\"", "\\\""); break;
+					case 6: instructions = data.replace("\"", "\\\""); break;
 					case 5: materials = data; break;
-					case 4: needed_time = data; break;
-					case 3: description = data; break;
-					case 2: name = data; break;
+					case 4: needed_time = data.replace("\"", "\\\""); break;
+					case 3: description = data.replace("\"", "\\\""); break;
+					case 2: name = data.replace("\"", "\\\""); break;
 					case 1: element_id = new Integer(data).intValue(); break;
 					default: break;
 					}
