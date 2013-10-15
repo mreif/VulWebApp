@@ -22,6 +22,10 @@ public class Security {
 		return (new HexBinaryAdapter()).marshal(md5.digest(cpwd.getBytes())).toLowerCase();
 	}
 	
+	public static String replaceHtmlChars(String text){
+		return text.replace("'", "&rsquo;").replace("\"", "&quot;").replace("<", "&lt;").replace(">", "&gt;");
+	}
+	
 	public static void main(String[] args){
 		System.out.println(Security.md5("test"));
 	}

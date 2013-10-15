@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import util.Security;
 import dao.Guestbookentry;
 
 public class GuestBookEntryTable extends TableQuery<Guestbookentry> {
@@ -27,13 +28,13 @@ public class GuestBookEntryTable extends TableQuery<Guestbookentry> {
 		ArrayList<Guestbookentry> entries = new ArrayList<Guestbookentry>();
 
 		try {
-			while (rs.next()) {
+			while (rs != null && rs.next()) {
 
 				for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
 					String data = rs.getObject(i).toString();
 					switch (i) {
 					case 3:
-						entry = data.replace("\"", "\\\"");
+						entry = Security.replaceHtmlChars(data);
 						break;
 					case 2:
 						name = data;
