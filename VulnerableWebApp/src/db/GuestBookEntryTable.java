@@ -33,7 +33,7 @@ public class GuestBookEntryTable extends TableQuery<Guestbookentry> {
 					String data = rs.getObject(i).toString();
 					switch (i) {
 					case 3:
-						entry = data;
+						entry = data.replace("\"", "\\\"");
 						break;
 					case 2:
 						name = data;
