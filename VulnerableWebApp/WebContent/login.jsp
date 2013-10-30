@@ -80,7 +80,7 @@
 				<%
 					} else {
 							session.setAttribute("userid", name);
-							response.sendRedirect("login.jsp");
+							response.sendRedirect("home.jsp");
 						}
 					}
 				%>
@@ -91,7 +91,17 @@
 			<ul>
 				<li><a href="home.jsp">home</a></li>
 				<li><a href="guestbook.jsp">Gästebuch</a></li>
+				<%
+					if (session.getAttribute("userid") == null) {
+				%>
 				<li><a href="login.jsp">Login</a></li>
+				<%
+					} else {
+				%>
+				<li><a href="login.jsp?logout=ausloggen">Logout</a></li>
+				<%
+					}
+				%>
 				<li><a href="geschenke.jsp">Geschenkideen</a></li>
 			</ul>
 		</div>

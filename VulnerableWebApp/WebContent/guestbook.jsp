@@ -25,7 +25,8 @@
 			t.save(new Guestbookentry(-1, name, nachricht));
 		} else if (check != null && check.length() > 0) {
 %>
-<script type="text/javascript">alert("Sie haben Schimpfwörter benutzt, deshalb wird ihr Eintrag nicht gespeichert: <%=check.replace("\n", "")%>");
+<script type="text/javascript">alert("Sie haben Schimpfwörter benutzt, deshalb wird ihr Eintrag nicht gespeichert: <%=check.replace("\n", "")%>
+	");
 </script>
 
 <%
@@ -114,7 +115,17 @@
 			<ul>
 				<li><a href="home.jsp">home</a></li>
 				<li><a href="guestbook.jsp">Gästebuch</a></li>
+				<%
+					if (session.getAttribute("userid") == null) {
+				%>
 				<li><a href="login.jsp">Login</a></li>
+				<%
+					} else {
+				%>
+				<li><a href="login.jsp?logout=ausloggen">Logout</a></li>
+				<%
+					}
+				%>
 				<li><a href="geschenke.jsp">Geschenkideen</a></li>
 			</ul>
 		</div>
