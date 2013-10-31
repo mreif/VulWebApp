@@ -39,6 +39,7 @@ body {
 	width: 1035px;
 	margin: auto;
 	min-height: 600px;
+	height:100%;
 }
 
 #columns #right {
@@ -107,7 +108,7 @@ body {
 	height: 50px;
 	width: 1037px;
 	bottom: 0;
-	position: inherit;
+	position: relative;
 	clear: both;
 	color: #FFFFFF;
 	margin-top: 10px;
@@ -218,7 +219,6 @@ body {
 	font-weight: bold;
 	font-size: 13pt;
 	background-color: #fbf4a0;
-	-moz-border-radius: 4px; /* Firefox */
 	-webkit-border-radius: 4px; /* Safari, Chrome */
 	-khtml-border-radius: 4px; /* Konqueror */
 	border-radius: 4px; /* CSS3 */
@@ -228,7 +228,6 @@ body {
 .Entry_name {
 	padding-bottom: 10px;
 	width: 402px;
-	margin-left: 70px;
 	background-color: #fbf4a0;
 }
 

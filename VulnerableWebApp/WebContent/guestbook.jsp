@@ -25,8 +25,7 @@
 			t.save(new Guestbookentry(-1, name, nachricht));
 		} else if (check != null && check.length() > 0) {
 %>
-<script type="text/javascript">alert("Sie haben Schimpfwörter benutzt, deshalb wird ihr Eintrag nicht gespeichert: <%=check.replace("\n", "")%>
-	");
+<script type="text/javascript">alert("Sie haben Schimpfwörter benutzt, deshalb wird ihr Eintrag nicht gespeichert: <%=check.replace("\n", "")%>");
 </script>
 
 <%
@@ -61,26 +60,25 @@
 			<div align="center">
 				<form method="post" action="guestbook.jsp">
 					<input type="hidden" id="delid" name="delid" value="" />
-					<table style="text-align: left; border-spacing: 10px 20px;">
-						<tr>
-							<td>Name:</td>
-							<td><input type="Text" size="40" maxlength="40" name="name"
-								value="" style="border-width: 1" class="inputfeld_name" /></td>
-						</tr>
-						<tr>
-							<td>Nachricht:</td>
-							<td><textarea name="nachricht" rows="8" cols="34"
+					<div style="align: center; border-spacing: 10px 20px;">
+						<div>
+							<div>Name:</div>
+							<div><input type="Text" size="40" maxlength="40" name="name"
+								value="" style="border-width: 1" class="inputfeld_name" /></div>
+						</div>
+						<div>
+							<div>Nachricht:</div>
+							<div><textarea name="nachricht" rows="8" cols="34"
 									style="border-width: 1" class="textarea_nachricht"></textarea>
-							</td>
-						</tr>
-						<tr>
-							<td></td>
-							<td><input type="submit" value="save" class="submit" /> <input
+							</div>
+						</div>
+						<div>
+							<div><input type="submit" value="save" class="submit" /> <input
 								type="button" value="reset" class="submit"
-								onclick="javascript:reset();" /></td>
-						</tr>
-					</table>
-					<div align="center">
+								onclick="javascript:reset();" /></div>
+						</div>
+					</div>
+					<div style="align:center; padding-top:20px;">
 
 						<%
 							ArrayList<Guestbookentry> entries = t.getAll();
