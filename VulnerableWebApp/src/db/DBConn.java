@@ -12,8 +12,8 @@ public class DBConn {
 	private final static String hostname = "localhost";
 	private final static String port = "3306";
 	private final static String dbname = "hack";
-	private final static String user = "java";
-	private final static String password= "test";
+	private final static String user = "yourMySqlUser";
+	private final static String password= "yourMySqlUserPassword";
 	
 	// singleton conn
 	private static Connection conn = null;

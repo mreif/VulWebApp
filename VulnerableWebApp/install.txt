@@ -1,0 +1,13 @@
+Install Requirements: 
+
+- tomcat 7.0 (if you start the server out of eclipse you have to create the runtime environment first)
+- java 7 open jdk
+- python2.7
+- mysql
+
+install-steps:
+	1. set up all needed requirements.
+	2. migrate database with init_sql.sql
+	3. mysql-settings are in db.DBConn (dbname, user, password, port, host)
+	4. build and deploy
+
